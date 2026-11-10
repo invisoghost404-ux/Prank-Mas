@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SYSTEM LOCKED</title>
+<style>
+body{background:#b30000;color:white;font-family:Arial;text-align:center;padding:20px;margin:0}
+.box{background:black;color:white;padding:15px;margin-top:20px;border:3px solid yellow}
+h1{font-size:28px}
+#prank{display:none;background:white;color:black;min-height:100vh;padding:20px}
+button{background:yellow;color:black;padding:15px;font-weight:bold;font-size:18px;width:100%;border:none;margin-top:15px}
+</style>
+</head>
+<body>
+<div id="fake">
+<h1>⚠️ HP TERKUNCI ⚠️</h1>
+<div class="box">
+<p><b>ALASAN:</b> Aktivitas mencurigakan terdeteksi</p>
+<p>IP: <span id="ip">loading...</span></p>
+<p>Lokasi: Mlonggo</p>
+<p style="color:yellow">Data akan dihapus dalam:</p>
+<h1 id="timer">00:10</h1>
+</div>
+<button onclick="reveal()">BUKA KUNCI SEKARANG</button>
+</div>
+<div id="prank">
+<h1 style="font-size:60px">😂</h1>
+<h1>KETIPU KAWAN!</h1>
+<p>HP lu aman bro, cuma prank.<br>Dari Ejen Mlonggo</p>
+<button style="background:#00ff00" onclick="alert('Wkwk kena!')">WKWK KENA</button>
+</div>
+<script>
+let t=10;setInterval(()=>{if(t>0){t--;document.getElementById("timer").innerHTML="00:0"+t}},1000);
+fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>document.getElementById("ip").innerHTML=d.ip);
+function reveal(){document.getElementById("fake").style.display="none";document.getElementById("prank").style.display="block";document.body.style.background="white"}
+</script>
+</body>
+</html>
